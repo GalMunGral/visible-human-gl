@@ -16,7 +16,7 @@ async function loadImage(url: string): Promise<Uint8ClampedArray> {
 export async function load3dTexture(layerSize: number, numLayers: number) {
   const tasks = new Array<Promise<Uint8ClampedArray>>(numLayers);
   for (let i = 0; i < numLayers; ++i) {
-    tasks[i] = loadImage(`/public/texture/texture-${i}.png`);
+    tasks[i] = loadImage(`./public/texture/texture-${i}.png`);
   }
   const layers = await Promise.all(tasks);
   const texture3d = new Uint8Array(layerSize * numLayers * 4);
