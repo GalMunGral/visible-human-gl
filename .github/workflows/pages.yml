@@ -26,7 +26,7 @@ jobs:
 
       - run: |
           npm ci
-          npm run build
+          PARCEL_WORKERS=0 npm run build
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
