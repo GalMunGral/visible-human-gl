@@ -12,6 +12,6 @@
   },
   "scripts": {
     "start": "parcel index.html public/**/*",
-    "build": "parcel build --public-url /visible-human-js index.html && cp -r public dist"
+    "build": "parcel build --public-url /visible-human-gl index.html && cp -r public dist"
   }
 }
