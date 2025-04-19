@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@types/three": "^0.175.0",
+    "parcel": "^2.14.4",
+    "three": "^0.175.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@parcel/transformer-glsl": "^2.14.4",
+    "@parcel/transformer-inline-string": "^2.14.4",
+    "prettier": "^3.5.3"
+  },
+  "scripts": {
+    "start": "parcel index.html public/**/*",
+    "build": "parcel build index.html public/**/*"
+  }
+}
