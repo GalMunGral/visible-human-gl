@@ -1,13 +1,13 @@
-# Visible Human: GL Slicing
+# Visible Human: Slicer
 
-**Live demo:** https://galmungral.github.io/visible-human-gl/
+**Live demo:** https://galmungral.github.io/visible-human-slicer/
 
 ## Rhetorical Design
 
 ### Purpose
 
-Custom rendering libraries give precise control over how volumetric data is sampled and displayed, but that flexibility comes with implementation cost. This demo uses Three.js and a minimal custom GLSL shader to show that interactive multi-plane slicing — all three anatomical cross-sections simultaneously in a shared 3D scene — can be achieved with surprisingly little code.
+Multi-plane CT slicing may appear to be a complex rendering problem, but the underlying idea is straightforward: once a CT volume is treated as a 3D texture, slicing along any axis reduces to a single texture lookup. This demo makes that point concrete.
 
 ### Strategy
 
-A single WebGL 3D texture holds the full CT volume. Three quads — axial, coronal, and sagittal — are positioned as orthogonal planes in one Three.js scene, each sampling the texture along its respective axis via a shared fragment shader. Moving a slider updates both the mesh position in world space and the texture coordinate passed as a uniform, keeping the visual slice and its 3D location in sync. ArcballControls allow free rotation so the viewer can inspect the intersection geometry from any angle.
+The full CT volume is stored as a 3D texture. Three orthogonal planes — axial, coronal, and sagittal — each sample that texture at a depth controlled by its slider. Free rotation allows the viewer to inspect all three planes intersecting simultaneously.
