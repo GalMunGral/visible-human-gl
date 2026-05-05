@@ -13,10 +13,16 @@ async function loadImage(url: string): Promise<Uint8ClampedArray> {
   });
 }
 
-export async function load3dTexture(layerSize: number, numLayers: number) {
+export async function load3dTexture(
+  layerSize: number,
+  numLayers: number,
+  onProgress?: (loaded: number, total: number) => void
+) {
+  let loaded = 0;
   const tasks = new Array<Promise<Uint8ClampedArray>>(numLayers);
   for (let i = 0; i < numLayers; ++i) {
-    tasks[i] = loadImage(`./public/texture/texture-${i}.png`);
+    tasks[i] = loadImage(`./public/texture/texture-${i}.png`)
+      .then((rgba) => { onProgress?.(++loaded, numLayers); return rgba; });
   }
   const layers = await Promise.all(tasks);
   const texture3d = new Uint8Array(layerSize * numLayers * 4);
