@@ -6,7 +6,7 @@
 
 ### Purpose
 
-Multi-plane CT slicing may appear to be a complex rendering problem, but the underlying idea is straightforward: once a CT volume is treated as a 3D texture, slicing along any axis reduces to a single texture lookup. This demo makes that point concrete.
+This demo is intended for those new to 3D graphics who may assume that multi-plane CT slicing is a technically demanding problem. The goal is to show that it is not: once a volumetric dataset is loaded as a 3D texture, extracting a cross-section along any axis requires only a single texture lookup. The shader is nearly trivial.
 
 ### Strategy
 
