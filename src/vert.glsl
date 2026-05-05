@@ -1,7 +1,10 @@
-in vec2 texCoord;
-out vec2 vTexCoord;
+uniform vec3 displacement;
+
+in vec3 uv3;
+
+out vec3 vTexCoord;
 
 void main() {
-  gl_Position = vec4(position, 1.0);
-  vTexCoord = texCoord;
+  vTexCoord = uv3 + displacement;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
